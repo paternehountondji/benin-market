@@ -70,5 +70,35 @@
     "lien": "https://www.gautier-furniture.com/en_GB/s/gautier-benin-cotonou",
     "membreFondateur": false,
     "avis": []
+  },
+  {
+    "nom": "SBEE",
+    "categorie": "energie",
+    "ville": "Cotonou",
+    "description": "Société Béninoise d'Énergie Électrique : distribution de l'électricité au Bénin.",
+    "contact": "",
+    "lien": "https://sbee.bj",
+    "membreFondateur": false,
+    "avis": []
+  },
+  {
+    "nom": "La Poste du Bénin",
+    "categorie": "transport",
+    "ville": "Cotonou",
+    "description": "Courrier, colis et services postaux dans tout le pays.",
+    "contact": "",
+    "lien": "https://laposte.bj",
+    "membreFondateur": false,
+    "avis": []
+  },
+  {
+    "nom": "Gozem",
+    "categorie": "transport",
+    "ville": "Cotonou",
+    "description": "Application de transport à la demande (zémidjan, taxi) et de livraison, présente à Cotonou.",
+    "contact": "",
+    "lien": "https://gozem.co",
+    "membreFondateur": false,
+    "avis": []
   }
 ]

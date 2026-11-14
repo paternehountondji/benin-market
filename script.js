@@ -10,6 +10,7 @@ const CATEGORIES = {
   alimentation: "Alimentation & Épicerie",
   agriculture: "Agriculture",
   btp: "Bâtiment & Travaux publics",
+  energie: "Énergie",
   services: "Services numériques",
   transport: "Transport & Logistique",
   commerce: "Commerce général"

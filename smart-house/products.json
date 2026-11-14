@@ -1,16 +1,14 @@
 {
-  "demo": true,
+  "demo": false,
   "whatsapp": "2290159000398",
   "produits": [
-    { "id": "ecouteurs-bt", "nom": "Écouteurs Bluetooth", "categorie": "audio", "prix": 6500, "description": "Sans fil, avec boîtier de charge.", "icone": "audio", "photo": "" },
-    { "id": "enceinte-bt", "nom": "Enceinte Bluetooth", "categorie": "audio", "prix": 12000, "description": "Portable, autonomie d'une journée.", "icone": "enceinte", "photo": "" },
-    { "id": "chargeur-20w", "nom": "Chargeur rapide 20 W", "categorie": "telephonie", "prix": 3500, "description": "Charge rapide pour Android et iPhone.", "icone": "chargeur", "photo": "" },
-    { "id": "cable-usbc", "nom": "Câble USB-C 1 m", "categorie": "telephonie", "prix": 1500, "description": "Câble renforcé, charge et données.", "icone": "cable", "photo": "" },
-    { "id": "batterie-10000", "nom": "Batterie externe 10 000 mAh", "categorie": "telephonie", "prix": 9000, "description": "Deux à trois recharges complètes.", "icone": "batterie", "photo": "" },
-    { "id": "coque", "nom": "Coque de protection", "categorie": "telephonie", "prix": 2000, "description": "Plusieurs modèles de téléphones disponibles.", "icone": "coque", "photo": "" },
-    { "id": "mixeur", "nom": "Mixeur blender", "categorie": "maison", "prix": 15000, "description": "Pour jus, sauces et purées.", "icone": "mixeur", "photo": "" },
-    { "id": "fer", "nom": "Fer à repasser", "categorie": "maison", "prix": 9500, "description": "Semelle antiadhésive, thermostat réglable.", "icone": "fer", "photo": "" },
-    { "id": "ventilateur", "nom": "Ventilateur rechargeable", "categorie": "maison", "prix": 18000, "description": "Fonctionne sur batterie pendant les coupures.", "icone": "ventilateur", "photo": "" },
-    { "id": "lampe", "nom": "Lampe rechargeable", "categorie": "maison", "prix": 5000, "description": "Éclairage LED, recharge par USB.", "icone": "lampe", "photo": "" }
+    { "id": "ecouteurs-bt", "nom": "Écouteurs Bluetooth", "categorie": "audio", "prix": 5000, "description": "Écouteurs sans fil de qualité, avec réduction de bruit.", "icone": "audio", "photo": "photos/earbuds.jpg" },
+    { "id": "enceinte-bt", "nom": "Enceinte Bluetooth", "categorie": "audio", "prix": 8000, "description": "Enceinte portable, basses puissantes et longue autonomie.", "icone": "enceinte", "photo": "photos/speaker.jpg" },
+    { "id": "montre", "nom": "Montre connectée", "categorie": "telephonie", "prix": 15000, "description": "Montre multifonction avec suivi de santé.", "icone": "coque", "photo": "photos/smartwatch.jpg" },
+    { "id": "chargeur", "nom": "Chargeur de téléphone", "categorie": "telephonie", "prix": 2000, "description": "Adaptateur de charge rapide, compatible avec tous les appareils.", "icone": "chargeur", "photo": "photos/charger.jpg" },
+    { "id": "coque", "nom": "Coque de téléphone", "categorie": "telephonie", "prix": 1500, "description": "Coque de protection pour les principales marques de téléphones.", "icone": "coque", "photo": "photos/phonecase.jpg" },
+    { "id": "verre-trempe", "nom": "Protection d'écran", "categorie": "telephonie", "prix": 1000, "description": "Verre trempé pour tous les modèles de téléphones.", "icone": "coque", "photo": "photos/screenprotector.jpg" },
+    { "id": "ventilateur", "nom": "Ventilateur électrique", "categorie": "maison", "prix": 12000, "description": "Ventilateur portable, économe en énergie.", "icone": "ventilateur", "photo": "photos/fan.jpg" },
+    { "id": "bouilloire", "nom": "Bouilloire électrique", "categorie": "maison", "prix": 9000, "description": "Chauffe vite et s'arrête automatiquement.", "icone": "mixeur", "photo": "photos/kettle.jpg" }
   ]
 }

@@ -48,7 +48,7 @@ Les catégories valides sont listées en haut de `script.js` (`CATEGORIES`). Le 
 
 ## Ajouter un avis
 
-Les avis arrivent par le formulaire `avis.html` (via Formspree). Après vérification, ajoute-les à la main dans `businesses.json`, dans le champ `avis` de l'entreprise :
+Les avis arrivent sur WhatsApp par le formulaire `avis.html`. Après vérification, ajoute-les à la main dans `businesses.json`, dans le champ `avis` de l'entreprise :
 
 ```json
 "avis": [
@@ -58,15 +58,13 @@ Les avis arrivent par le formulaire `avis.html` (via Formspree). Après vérific
 
 Ne publie que des avis réellement reçus.
 
-## Activer le formulaire "Rejoindre"
+## Formulaires
 
-Le formulaire pointe vers `https://formspree.io/f/VOTRE_ID_FORMSPREE` dans `rejoindre.html` et dans `avis.html`. Pour qu'il fonctionne :
+Les formulaires `rejoindre.html` et `avis.html` n'utilisent aucun service externe : ils préparent un message WhatsApp vers le numéro de Benin Market, puis affichent `merci.html`. Le numéro se change en haut de `site.js` (`BENIN_MARKET_WHATSAPP`).
 
-1. Crée un compte gratuit sur [formspree.io](https://formspree.io)
-2. Crée un nouveau formulaire et copie son ID
-3. Remplace `VOTRE_ID_FORMSPREE` dans `rejoindre.html` et `avis.html` par cet ID
+## Offres
 
-Sans cette étape, le formulaire reste visible mais n'envoie rien.
+Les abonnements sont décrits dans `offres.html`. Si tu changes un prix, change-le aussi dans la liste « Offre souhaitée » de `rejoindre.html`.
 
 ## Déployer sur GitHub Pages
 
@@ -78,7 +76,6 @@ Sans cette étape, le formulaire reste visible mais n'envoie rien.
 ## Prochaines étapes
 
 - Ajouter de vraies entreprises (viser au moins 10 à 15, dans plusieurs villes)
-- Activer Formspree
 - Déployer et tester le lien final avant de le mettre dans la candidature
 
 ## La boutique SMART HOUSE (dossier `smart-house/`)
