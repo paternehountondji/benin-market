@@ -166,15 +166,29 @@ function renderDirectory(businesses) {
         const whatsappLine = digits
           ? `<a href="https://wa.me/${digits}" target="_blank" rel="noopener">WhatsApp</a>`
           : "";
-        const linkLine = b.lien ? `<a href="${escapeHtml(b.lien)}" target="_blank" rel="noopener">Voir le lien</a>` : "";
+        const linkLine = b.lien ? `<a href="${escapeHtml(b.lien)}" target="_blank" rel="noopener">Voir la page</a>` : "";
+        const nameHtml = b.lien
+          ? `<a href="${escapeHtml(b.lien)}" target="_blank" rel="noopener">${escapeHtml(b.nom)}</a>`
+          : escapeHtml(b.nom);
+        const reviews = Array.isArray(b.avis) ? b.avis : [];
+        const reviewUrl = buildUrl("avis.html", { entreprise: b.nom });
+        const reviewsHtml = reviews.length
+          ? `<ul class="review-list">${reviews
+              .map(
+                (r) =>
+                  `<li><strong>${escapeHtml(r.auteur)}</strong> · ${escapeHtml(r.note)}/5<br>${escapeHtml(r.texte)}</li>`
+              )
+              .join("")}</ul><a class="review-link" href="${reviewUrl}">Donner un avis</a>`
+          : `<p class="review-empty">Pas encore d'avis. <a href="${reviewUrl}">Donner le premier avis</a></p>`;
         return `
         <li class="entry">
           <span class="entry-initial" aria-hidden="true">${initial}</span>
           <div>
-            <h3>${escapeHtml(b.nom)}</h3>
+            <h3>${nameHtml}</h3>
             <p class="meta">${escapeHtml(b.ville)}${b.membreFondateur ? " · Membre fondateur" : ""}</p>
             <span class="cat-tag">${escapeHtml(CATEGORIES[b.categorie] || b.categorie)}</span>
             <p>${escapeHtml(b.description)}</p>
+            ${reviewsHtml}
           </div>
           <div class="entry-contact">${callLine}${whatsappLine}${linkLine}</div>
         </li>`;

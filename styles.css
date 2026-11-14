@@ -333,6 +333,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   margin-right: 6px;
 }
 
+.entry h3 a { color: var(--indigo); }
+.entry h3 a:hover { color: var(--clay-dark); }
+
+.review-empty, .review-link { font-size: 0.85rem; margin: 8px 0 0; }
+.review-list { list-style: none; padding: 0; margin: 10px 0 6px; font-size: 0.9rem; color: var(--ink-soft); }
+.review-list li { border-left: 3px solid var(--ochre); padding-left: 10px; margin-bottom: 8px; }
+
+.spotlight-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
 .entry-contact { text-align: right; font-size: 0.9rem; white-space: nowrap; }
 .entry-contact a { display: block; margin-bottom: 4px; }
 

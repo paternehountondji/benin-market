@@ -8,9 +8,11 @@ Annuaire des entreprises du Bénin : recherche par produit, par ville et par cat
 - `annuaire.html` : liste complète, recherche, filtre par ville et par catégorie
 - `vision.html` : le problème, comment ça marche, la suite du projet
 - `rejoindre.html` : formulaire d'inscription des entreprises
+- `avis.html` : formulaire pour donner un avis sur une entreprise
+- `favicon.svg` : l'icône BM affichée dans l'onglet du navigateur
 - `styles.css` : toute la mise en forme
 - `script.js` : chargement des données et logique de recherche et de filtres
-- `businesses.json` : les données des entreprises (actuellement des exemples, à remplacer)
+- `businesses.json` : les données des entreprises (à compléter avec de nouvelles entreprises)
 
 ## Tester en local
 
@@ -26,9 +28,9 @@ python -m http.server 8000
 
 Puis ouvre `http://localhost:8000` dans le navigateur. (Avec VS Code, l'extension "Live Server" fait la même chose en un clic.)
 
-## Remplacer les données d'exemple
+## Ajouter une entreprise
 
-Dans `businesses.json`, chaque entreprise dont le nom finit par `(exemple)` doit être remplacée par une vraie entreprise, ou supprimée. Mets aussi le vrai numéro et le vrai lien de SMART HOUSE. Garde le même format :
+Dans `businesses.json`, ajoute un bloc par entreprise, avec des coordonnées vérifiées. Garde le même format :
 
 ```json
 {
@@ -44,13 +46,25 @@ Dans `businesses.json`, chaque entreprise dont le nom finit par `(exemple)` doit
 
 Les catégories valides sont listées en haut de `script.js` (`CATEGORIES`). Le filtre par ville se remplit tout seul à partir des villes présentes dans `businesses.json`. Le numéro de contact sert aussi pour le lien WhatsApp : écris-le avec l'indicatif (`+229 ...`).
 
+## Ajouter un avis
+
+Les avis arrivent par le formulaire `avis.html` (via Formspree). Après vérification, ajoute-les à la main dans `businesses.json`, dans le champ `avis` de l'entreprise :
+
+```json
+"avis": [
+  { "auteur": "Prénom N.", "note": 5, "texte": "Le texte de l'avis." }
+]
+```
+
+Ne publie que des avis réellement reçus.
+
 ## Activer le formulaire "Rejoindre"
 
-Le formulaire pointe vers `https://formspree.io/f/VOTRE_ID_FORMSPREE` dans `rejoindre.html`. Pour qu'il fonctionne :
+Le formulaire pointe vers `https://formspree.io/f/VOTRE_ID_FORMSPREE` dans `rejoindre.html` et dans `avis.html`. Pour qu'il fonctionne :
 
 1. Crée un compte gratuit sur [formspree.io](https://formspree.io)
 2. Crée un nouveau formulaire et copie son ID
-3. Remplace `VOTRE_ID_FORMSPREE` dans `rejoindre.html` par cet ID
+3. Remplace `VOTRE_ID_FORMSPREE` dans `rejoindre.html` et `avis.html` par cet ID
 
 Sans cette étape, le formulaire reste visible mais n'envoie rien.
 
@@ -63,7 +77,6 @@ Sans cette étape, le formulaire reste visible mais n'envoie rien.
 
 ## Prochaines étapes
 
-- Remplacer les entreprises d'exemple par de vraies entreprises (viser au moins 10 à 15, dans plusieurs villes)
-- Mettre les vraies coordonnées de SMART HOUSE dans `businesses.json`
+- Ajouter de vraies entreprises (viser au moins 10 à 15, dans plusieurs villes)
 - Activer Formspree
 - Déployer et tester le lien final avant de le mettre dans la candidature

@@ -6,69 +6,67 @@
     "description": "Vente d'accessoires de téléphonie, d'électronique et de petits appareils électroménagers.",
     "contact": "+229 01 59 00 03 98",
     "lien": "https://www.facebook.com/share/18rXJciYxU/?mibextid=wwXIfr",
-    "membreFondateur": true
+    "membreFondateur": true,
+    "avis": []
   },
   {
-    "nom": "Couture Succès (exemple)",
-    "categorie": "mode",
-    "ville": "Cotonou",
-    "description": "Confection sur mesure et prêt-à-porter pour hommes et femmes.",
-    "contact": "+229 01 00 00 00 00",
-    "lien": "",
-    "membreFondateur": false
-  },
-  {
-    "nom": "Épicerie du Quartier (exemple)",
-    "categorie": "alimentation",
-    "ville": "Porto-Novo",
-    "description": "Produits alimentaires de base, boissons et articles d'épicerie au détail.",
-    "contact": "+229 01 00 00 00 00",
-    "lien": "",
-    "membreFondateur": false
-  },
-  {
-    "nom": "Atelier Numérique (exemple)",
-    "categorie": "services",
+    "nom": "YoupiLab",
+    "categorie": "electronique",
     "ville": "Abomey-Calavi",
-    "description": "Création de sites web, gestion de réseaux sociaux et mise en page de documents pour les petites entreprises.",
-    "contact": "+229 01 00 00 00 00",
-    "lien": "",
-    "membreFondateur": false
+    "description": "Composants électroniques, solutions IoT, formations en technologie et impression 3D.",
+    "contact": "+229 01 61 04 16 22",
+    "lien": "https://youpilab.com/pages/contact.php?lang=en",
+    "membreFondateur": false,
+    "avis": []
   },
   {
-    "nom": "Transport Express Bénin (exemple)",
+    "nom": "Instakoutur (KEORA SARL)",
+    "categorie": "mode",
+    "ville": "Parakou",
+    "description": "Couture sur mesure : mise en relation avec des couturières partenaires, de la prise de mesures à la livraison.",
+    "contact": "",
+    "lien": "https://vc4a.com/ventures/keora-sarl-marque-de-service-instakoutur/",
+    "membreFondateur": false,
+    "avis": []
+  },
+  {
+    "nom": "Les Jus Tillou",
+    "categorie": "alimentation",
+    "ville": "Allada",
+    "description": "Production de jus de fruits, principalement du pur jus d'ananas.",
+    "contact": "",
+    "lien": "https://vc4a.com/ventures/les-jus-tillou",
+    "membreFondateur": false,
+    "avis": []
+  },
+  {
+    "nom": "Appelle Dave",
+    "categorie": "transport",
+    "ville": "Abomey-Calavi",
+    "description": "Livraison locale, courses et services à domicile pour particuliers et entreprises.",
+    "contact": "",
+    "lien": "https://vc4a.com/ventures/appelle-dave/",
+    "membreFondateur": false,
+    "avis": []
+  },
+  {
+    "nom": "ColisOk",
     "categorie": "transport",
     "ville": "Parakou",
-    "description": "Livraison de marchandises et transport de colis entre les villes du pays.",
-    "contact": "+229 01 00 00 00 00",
-    "lien": "",
-    "membreFondateur": false
+    "description": "Vérification physique des colis pour que l'acheteur en ligne contrôle l'article avant de payer.",
+    "contact": "",
+    "lien": "https://vc4a.com/ventures/colisok",
+    "membreFondateur": false,
+    "avis": []
   },
   {
-    "nom": "Quincaillerie du Marché (exemple)",
+    "nom": "Meubles Gautier Bénin",
     "categorie": "commerce",
-    "ville": "Bohicon",
-    "description": "Outillage, fournitures diverses et petit matériel pour particuliers et chantiers.",
-    "contact": "+229 01 00 00 00 00",
-    "lien": "",
-    "membreFondateur": false
-  },
-  {
-    "nom": "Ferme du Nord (exemple)",
-    "categorie": "agriculture",
-    "ville": "Natitingou",
-    "description": "Vente de produits agricoles frais et de semences aux particuliers et aux revendeurs.",
-    "contact": "+229 01 00 00 00 00",
-    "lien": "",
-    "membreFondateur": false
-  },
-  {
-    "nom": "Bâtisseurs Associés (exemple)",
-    "categorie": "btp",
     "ville": "Cotonou",
-    "description": "Construction, rénovation et suivi de chantier pour particuliers et entreprises.",
-    "contact": "+229 01 00 00 00 00",
-    "lien": "",
-    "membreFondateur": false
+    "description": "Magasin de meubles au centre commercial Erevan.",
+    "contact": "",
+    "lien": "https://www.gautier-furniture.com/en_GB/s/gautier-benin-cotonou",
+    "membreFondateur": false,
+    "avis": []
   }
 ]

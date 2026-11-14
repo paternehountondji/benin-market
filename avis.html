@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Donner un avis — Benin Market</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">Benin <span>Market</span></a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="annuaire.html">Annuaire</a></li>
+        <li><a href="vision.html">Notre vision</a></li>
+        <li><a href="rejoindre.html">Rejoindre</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h1>Donner un avis</h1>
+    <p>Vous avez acheté chez une entreprise de l'annuaire ? Racontez votre expérience. Chaque avis est vérifié avant d'être publié.</p>
+
+    <form class="form-card" action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
+      <div class="field">
+        <label for="entreprise">Entreprise concernée</label>
+        <input type="text" id="entreprise" name="entreprise" required>
+      </div>
+      <div class="field">
+        <label for="auteur">Votre nom</label>
+        <input type="text" id="auteur" name="auteur" required>
+      </div>
+      <div class="field">
+        <label for="note">Note</label>
+        <select id="note" name="note" required>
+          <option value="">Choisir…</option>
+          <option value="5">5 — Excellent</option>
+          <option value="4">4 — Bien</option>
+          <option value="3">3 — Correct</option>
+          <option value="2">2 — Décevant</option>
+          <option value="1">1 — Mauvais</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="texte">Votre avis</label>
+        <textarea id="texte" name="texte" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer mon avis</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Benin Market — Bénin</span>
+    <span><a href="annuaire.html">Voir l'annuaire</a></span>
+  </div>
+</footer>
+
+<script>
+  const entreprise = new URLSearchParams(window.location.search).get("entreprise");
+  if (entreprise) document.getElementById("entreprise").value = entreprise;
+</script>
+</body>
+</html>
