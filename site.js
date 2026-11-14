@@ -56,3 +56,8 @@ if (merciTitle && urlParams.get("type") === "avis") {
   document.getElementById("merci-text").textContent =
     "Votre avis a été préparé dans WhatsApp. Appuyez sur Envoyer pour nous le transmettre. Il sera publié après vérification.";
 }
+
+/* ---------- Année du pied de page ---------- */
+
+const footerYear = document.getElementById("footer-year");
+if (footerYear) footerYear.textContent = new Date().getFullYear();

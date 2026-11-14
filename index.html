@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Benin Market : l'annuaire des entreprises du Bénin. Cherchez un produit ou un service et trouvez qui le propose près de chez vous.">
 <title>Benin Market — l'annuaire des entreprises du Bénin</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="styles.css">
@@ -25,7 +26,7 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero hero-home">
   <div class="container">
     <div class="hero-copy">
       <h1>Trouvez une entreprise béninoise en quelques secondes.</h1>
@@ -37,22 +38,49 @@
       </div>
     </div>
     <div class="search-panel">
-      <h3>Que cherchez-vous ?</h3>
+      <h2>Que cherchez-vous ?</h2>
       <form id="hero-search-form" class="search-stack">
-        <input type="text" id="hero-search-input" placeholder="Ex. couture, électronique, transport…" aria-label="Rechercher une entreprise ou un produit">
+        <div class="suggest-wrap">
+          <input type="text" id="hero-search-input" placeholder="Ex. téléphone, couture, hôtel…" aria-label="Rechercher une entreprise ou un produit" autocomplete="off">
+          <div class="suggest-box" id="hero-suggestions" hidden></div>
+        </div>
         <select id="hero-city-select" aria-label="Choisir une ville"></select>
         <button type="submit" class="btn btn-primary">Chercher</button>
       </form>
-      <p class="search-hint">Vous pouvez aussi parcourir l'annuaire complet par catégorie ci-dessous.</p>
+      <p class="search-hint">Les entreprises s'affichent pendant que vous écrivez.</p>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt" id="categories">
   <div class="container">
     <h2>Parcourir par catégorie</h2>
+    <p>Du téléphone au menuisier, choisissez un domaine pour voir les entreprises qui s'en occupent.</p>
     <ul class="cat-grid" id="categories-grid">
       <!-- rempli par script.js -->
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Comment ça marche</h2>
+    <ul class="steps">
+      <li>
+        <span class="step-num">1</span>
+        <h3>Chercher</h3>
+        <p>Tapez un produit, un service ou un nom d'entreprise, ou choisissez une catégorie.</p>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <h3>Comparer</h3>
+        <p>Regardez les fiches : description, ville, avis des clients et boutique en ligne.</p>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <h3>Contacter</h3>
+        <p>Appelez, écrivez sur WhatsApp ou commandez directement dans la boutique de l'entreprise.</p>
+      </li>
     </ul>
   </div>
 </section>
@@ -60,15 +88,14 @@
 <section class="section spotlight">
   <div class="container spotlight-row">
     <div>
-    <span class="tag">Membre fondateur</span>
-    <h2>SMART HOUSE</h2>
-    <p>Vente d'accessoires de téléphonie, d'électronique et de petits appareils électroménagers à Lokossa. Première entreprise référencée sur Benin Market, à l'origine du projet.</p>
-    <div class="spotlight-actions">
-      <a href="smart-house/index.html" class="btn btn-primary">Visiter la boutique en ligne</a>
-      <a href="https://wa.me/2290159000398" target="_blank" rel="noopener" class="btn btn-outline">Écrire sur WhatsApp</a>
-      <a href="https://www.facebook.com/share/18rXJciYxU/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-outline">Page Facebook</a>
-      <a href="annuaire.html?q=smart%20house" class="btn btn-outline">Voir la fiche</a>
-    </div>
+      <span class="tag">Membre fondateur</span>
+      <h2>SMART HOUSE</h2>
+      <p>Vente d'accessoires de téléphonie, d'électronique et de petits appareils électroménagers à Lokossa. Première entreprise référencée sur Benin Market, à l'origine du projet.</p>
+      <div class="spotlight-actions">
+        <a href="smart-house/index.html" class="btn btn-primary">Visiter la boutique en ligne</a>
+        <a href="https://wa.me/2290159000398" target="_blank" rel="noopener" class="btn btn-outline">Écrire sur WhatsApp</a>
+        <a href="https://www.facebook.com/share/18rXJciYxU/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-outline">Page Facebook</a>
+      </div>
     </div>
     <img class="spotlight-photo" src="smart-house/photos/boutique.jpg" alt="Les rayons de la boutique SMART HOUSE à Lokossa" loading="lazy" width="736" height="981">
   </div>
@@ -79,7 +106,7 @@
     <div>
       <h2>Pas encore de site web ? Nous le créons pour vous.</h2>
       <p>Benin Market construit la boutique en ligne de votre entreprise : vos produits avec photos et prix, un panier qui calcule le total, et les commandes qui arrivent sur votre WhatsApp.</p>
-      <a href="rejoindre.html" class="btn btn-dark">Demander mon site</a>
+      <a href="offres.html" class="btn btn-dark">Voir les offres</a>
     </div>
     <a href="smart-house/index.html" class="service-example">
       <span class="service-label">Exemple en ligne</span>
@@ -98,9 +125,41 @@
 </section>
 
 <footer class="site-footer">
-  <div class="container">
-    <span>Benin Market — Bénin</span>
-    <span>Projet pilote — <a href="vision.html">en savoir plus sur la démarche</a></span>
+  <div class="container footer-grid">
+    <div>
+      <a href="index.html" class="brand">Benin <span>Market</span></a>
+      <p>L'annuaire des entreprises du Bénin. Trouvez un produit, un service ou un commerce près de chez vous.</p>
+    </div>
+    <div>
+      <h2>Explorer</h2>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="annuaire.html">Annuaire</a></li>
+        <li><a href="index.html#categories">Catégories</a></li>
+        <li><a href="vision.html">Notre vision</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Pour les entreprises</h2>
+      <ul>
+        <li><a href="rejoindre.html">Ajouter mon entreprise</a></li>
+        <li><a href="offres.html">Offres et tarifs</a></li>
+        <li><a href="smart-house/index.html">Exemple de boutique en ligne</a></li>
+        <li><a href="avis.html">Donner un avis</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="https://wa.me/2290159000398" target="_blank" rel="noopener">WhatsApp : +229 01 59 00 03 98</a></li>
+        <li>Lokossa, Bénin</li>
+        <li><a href="https://github.com/paternehountondji/benin-market" target="_blank" rel="noopener">Code source sur GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="footer-year">2026</span> Benin Market. Projet pilote né de SMART HOUSE.</span>
+    <span>Les entreprises sont référencées à partir de leurs informations publiques.</span>
   </div>
 </footer>
 

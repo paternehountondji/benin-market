@@ -9,7 +9,24 @@
     "membreFondateur": true,
     "avis": [],
     "boutique": "smart-house/index.html",
-    "photo": "smart-house/photos/boutique.jpg"
+    "photo": "smart-house/photos/boutique.jpg",
+    "motsCles": [
+      "téléphone",
+      "portable",
+      "écouteurs",
+      "casque",
+      "chargeur",
+      "câble",
+      "coque",
+      "verre trempé",
+      "montre connectée",
+      "enceinte",
+      "bluetooth",
+      "ventilateur",
+      "bouilloire",
+      "électroménager",
+      "accessoires"
+    ]
   },
   {
     "nom": "YoupiLab",
@@ -19,7 +36,16 @@
     "contact": "+229 01 61 04 16 22",
     "lien": "https://youpilab.com/pages/contact.php?lang=en",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "arduino",
+      "capteur",
+      "robotique",
+      "électronique",
+      "imprimante 3D",
+      "formation",
+      "IoT"
+    ]
   },
   {
     "nom": "Instakoutur (KEORA SARL)",
@@ -29,7 +55,17 @@
     "contact": "",
     "lien": "https://vc4a.com/ventures/keora-sarl-marque-de-service-instakoutur/",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "couture",
+      "tailleur",
+      "couturière",
+      "pagne",
+      "tenue",
+      "robe",
+      "habit",
+      "sur mesure"
+    ]
   },
   {
     "nom": "Les Jus Tillou",
@@ -39,7 +75,13 @@
     "contact": "",
     "lien": "https://vc4a.com/ventures/les-jus-tillou",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "jus",
+      "ananas",
+      "boisson",
+      "fruit"
+    ]
   },
   {
     "nom": "Appelle Dave",
@@ -49,7 +91,13 @@
     "contact": "",
     "lien": "https://vc4a.com/ventures/appelle-dave/",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "livraison",
+      "courses",
+      "coursier",
+      "commission"
+    ]
   },
   {
     "nom": "ColisOk",
@@ -59,7 +107,13 @@
     "contact": "",
     "lien": "https://vc4a.com/ventures/colisok",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "colis",
+      "livraison",
+      "achat en ligne",
+      "vérification"
+    ]
   },
   {
     "nom": "Meubles Gautier Bénin",
@@ -69,7 +123,15 @@
     "contact": "",
     "lien": "https://www.gautier-furniture.com/en_GB/s/gautier-benin-cotonou",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "meuble",
+      "lit",
+      "canapé",
+      "armoire",
+      "salon",
+      "décoration"
+    ]
   },
   {
     "nom": "SBEE",
@@ -79,7 +141,14 @@
     "contact": "",
     "lien": "https://sbee.bj",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "électricité",
+      "courant",
+      "compteur",
+      "facture",
+      "abonnement"
+    ]
   },
   {
     "nom": "La Poste du Bénin",
@@ -89,7 +158,14 @@
     "contact": "",
     "lien": "https://laposte.bj",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "courrier",
+      "colis",
+      "lettre",
+      "envoi",
+      "mandat"
+    ]
   },
   {
     "nom": "Gozem",
@@ -99,6 +175,107 @@
     "contact": "",
     "lien": "https://gozem.co",
     "membreFondateur": false,
-    "avis": []
+    "avis": [],
+    "motsCles": [
+      "zémidjan",
+      "zem",
+      "taxi",
+      "moto",
+      "course",
+      "livraison",
+      "application"
+    ]
+  },
+  {
+    "nom": "MTN Bénin",
+    "categorie": "telecoms",
+    "ville": "Cotonou",
+    "description": "Opérateur de téléphonie mobile, internet et Mobile Money.",
+    "contact": "",
+    "lien": "https://www.mtn.bj",
+    "membreFondateur": false,
+    "avis": [],
+    "motsCles": [
+      "téléphone",
+      "sim",
+      "forfait",
+      "internet",
+      "momo",
+      "mobile money",
+      "crédit",
+      "réseau"
+    ]
+  },
+  {
+    "nom": "Moov Africa Bénin",
+    "categorie": "telecoms",
+    "ville": "Cotonou",
+    "description": "Opérateur de téléphonie mobile, internet et Moov Money.",
+    "contact": "",
+    "lien": "https://www.moov-africa.bj",
+    "membreFondateur": false,
+    "avis": [],
+    "motsCles": [
+      "téléphone",
+      "sim",
+      "forfait",
+      "internet",
+      "moov money",
+      "crédit",
+      "réseau"
+    ]
+  },
+  {
+    "nom": "Bank of Africa Bénin",
+    "categorie": "banque",
+    "ville": "Cotonou",
+    "description": "Banque : comptes, épargne et crédits pour particuliers et entreprises.",
+    "contact": "",
+    "lien": "https://bank-of-africa.net",
+    "membreFondateur": false,
+    "avis": [],
+    "motsCles": [
+      "banque",
+      "compte",
+      "crédit",
+      "prêt",
+      "épargne",
+      "carte"
+    ]
+  },
+  {
+    "nom": "Novotel Cotonou Orisha",
+    "categorie": "hotellerie",
+    "ville": "Cotonou",
+    "description": "Hôtel 4 étoiles avec restaurant et salles de réunion.",
+    "contact": "",
+    "lien": "https://all.accor.com/hotel/1826/index.fr.shtml",
+    "membreFondateur": false,
+    "avis": [],
+    "motsCles": [
+      "hôtel",
+      "chambre",
+      "restaurant",
+      "séminaire",
+      "hébergement"
+    ]
+  },
+  {
+    "nom": "Université d'Abomey-Calavi",
+    "categorie": "education",
+    "ville": "Abomey-Calavi",
+    "description": "Université publique : formations de la licence au doctorat.",
+    "contact": "",
+    "lien": "https://uac.bj",
+    "membreFondateur": false,
+    "avis": [],
+    "motsCles": [
+      "université",
+      "étude",
+      "licence",
+      "master",
+      "formation",
+      "école"
+    ]
   }
 ]
