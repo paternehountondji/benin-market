@@ -1,0 +1,74 @@
+[
+  {
+    "nom": "SMART HOUSE",
+    "categorie": "electronique",
+    "ville": "Lokossa",
+    "description": "Vente d'accessoires de téléphonie, d'électronique et de petits appareils électroménagers.",
+    "contact": "+229 01 00 00 00 00",
+    "lien": "https://facebook.com/votre-page",
+    "membreFondateur": true
+  },
+  {
+    "nom": "Couture Succès (exemple)",
+    "categorie": "mode",
+    "ville": "Cotonou",
+    "description": "Confection sur mesure et prêt-à-porter pour hommes et femmes.",
+    "contact": "+229 01 00 00 00 00",
+    "lien": "",
+    "membreFondateur": false
+  },
+  {
+    "nom": "Épicerie du Quartier (exemple)",
+    "categorie": "alimentation",
+    "ville": "Porto-Novo",
+    "description": "Produits alimentaires de base, boissons et articles d'épicerie au détail.",
+    "contact": "+229 01 00 00 00 00",
+    "lien": "",
+    "membreFondateur": false
+  },
+  {
+    "nom": "Atelier Numérique (exemple)",
+    "categorie": "services",
+    "ville": "Abomey-Calavi",
+    "description": "Création de sites web, gestion de réseaux sociaux et mise en page de documents pour les petites entreprises.",
+    "contact": "+229 01 00 00 00 00",
+    "lien": "",
+    "membreFondateur": false
+  },
+  {
+    "nom": "Transport Express Bénin (exemple)",
+    "categorie": "transport",
+    "ville": "Parakou",
+    "description": "Livraison de marchandises et transport de colis entre les villes du pays.",
+    "contact": "+229 01 00 00 00 00",
+    "lien": "",
+    "membreFondateur": false
+  },
+  {
+    "nom": "Quincaillerie du Marché (exemple)",
+    "categorie": "commerce",
+    "ville": "Bohicon",
+    "description": "Outillage, fournitures diverses et petit matériel pour particuliers et chantiers.",
+    "contact": "+229 01 00 00 00 00",
+    "lien": "",
+    "membreFondateur": false
+  },
+  {
+    "nom": "Ferme du Nord (exemple)",
+    "categorie": "agriculture",
+    "ville": "Natitingou",
+    "description": "Vente de produits agricoles frais et de semences aux particuliers et aux revendeurs.",
+    "contact": "+229 01 00 00 00 00",
+    "lien": "",
+    "membreFondateur": false
+  },
+  {
+    "nom": "Bâtisseurs Associés (exemple)",
+    "categorie": "btp",
+    "ville": "Cotonou",
+    "description": "Construction, rénovation et suivi de chantier pour particuliers et entreprises.",
+    "contact": "+229 01 00 00 00 00",
+    "lien": "",
+    "membreFondateur": false
+  }
+]

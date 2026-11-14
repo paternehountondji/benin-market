@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benin Market — l'annuaire des entreprises du Bénin</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">Benin <span>Market</span></a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
+        <li><a href="annuaire.html">Annuaire</a></li>
+        <li><a href="vision.html">Notre vision</a></li>
+        <li><a href="rejoindre.html">Rejoindre</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy">
+      <h1>Trouvez une entreprise béninoise en quelques secondes.</h1>
+      <p>Benin Market rassemble les commerces et services du Bénin dans un seul annuaire. Cherchez un produit ou un service, choisissez votre ville, puis contactez directement l'entreprise.</p>
+      <div class="hero-stats">
+        <div><span class="num" id="stat-count">–</span><span class="label">entreprises référencées</span></div>
+        <div><span class="num" id="stat-cities">–</span><span class="label">villes couvertes</span></div>
+        <div><span class="num" id="stat-categories">–</span><span class="label">catégories</span></div>
+      </div>
+    </div>
+    <div class="search-panel">
+      <h3>Que cherchez-vous ?</h3>
+      <form id="hero-search-form" class="search-stack">
+        <input type="text" id="hero-search-input" placeholder="Ex. couture, électronique, transport…" aria-label="Rechercher une entreprise ou un produit">
+        <select id="hero-city-select" aria-label="Choisir une ville"></select>
+        <button type="submit" class="btn btn-primary">Chercher</button>
+      </form>
+      <p class="search-hint">Vous pouvez aussi parcourir l'annuaire complet par catégorie ci-dessous.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2>Parcourir par catégorie</h2>
+    <ul class="cat-grid" id="categories-grid">
+      <!-- rempli par script.js -->
+    </ul>
+  </div>
+</section>
+
+<section class="section spotlight">
+  <div class="container">
+    <span class="tag">Membre fondateur</span>
+    <h2>SMART HOUSE</h2>
+    <p>Vente d'accessoires de téléphonie, d'électronique et de petits appareils électroménagers à Lokossa. Première entreprise référencée sur Benin Market, à l'origine du projet.</p>
+    <a href="annuaire.html?q=smart%20house" class="btn btn-outline">Voir la fiche</a>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Vous avez une entreprise au Bénin ?</h2>
+    <p>Ajoutez-la gratuitement à l'annuaire et devenez plus visible auprès des clients de tout le pays.</p>
+    <a href="rejoindre.html" class="btn btn-dark">Ajouter mon entreprise</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Benin Market — Bénin</span>
+    <span>Projet pilote — <a href="vision.html">en savoir plus sur la démarche</a></span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

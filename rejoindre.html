@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rejoindre l'annuaire — Benin Market</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">Benin <span>Market</span></a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="annuaire.html">Annuaire</a></li>
+        <li><a href="vision.html">Notre vision</a></li>
+        <li><a href="rejoindre.html" aria-current="page">Rejoindre</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h1>Ajoutez votre entreprise</h1>
+    <p>Remplissez ce formulaire pour apparaître dans l'annuaire. C'est gratuit. Nous vous recontactons pour confirmer les informations avant publication.</p>
+
+    <form class="form-card" action="https://formspree.io/f/VOTRE_ID_FORMSPREE" method="POST">
+      <div class="field">
+        <label for="nom">Nom de l'entreprise</label>
+        <input type="text" id="nom" name="nom" required>
+      </div>
+      <div class="field">
+        <label for="categorie">Catégorie</label>
+        <select id="categorie" name="categorie" required>
+          <option value="">Choisir…</option>
+          <option value="electronique">Électronique &amp; Téléphonie</option>
+          <option value="mode">Mode &amp; Couture</option>
+          <option value="alimentation">Alimentation &amp; Épicerie</option>
+          <option value="agriculture">Agriculture</option>
+          <option value="btp">Bâtiment &amp; Travaux publics</option>
+          <option value="services">Services numériques</option>
+          <option value="transport">Transport &amp; Logistique</option>
+          <option value="commerce">Commerce général</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ville">Ville</label>
+        <input type="text" id="ville" name="ville" list="villes-benin" required>
+        <datalist id="villes-benin">
+          <option value="Cotonou"></option>
+          <option value="Porto-Novo"></option>
+          <option value="Abomey-Calavi"></option>
+          <option value="Parakou"></option>
+          <option value="Bohicon"></option>
+          <option value="Abomey"></option>
+          <option value="Lokossa"></option>
+          <option value="Ouidah"></option>
+          <option value="Natitingou"></option>
+          <option value="Djougou"></option>
+        </datalist>
+      </div>
+      <div class="field">
+        <label for="description">Description courte</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
+      <div class="field">
+        <label for="contact">Numéro de contact (téléphone ou WhatsApp)</label>
+        <input type="tel" id="contact" name="contact" required>
+        <p class="form-note">Ce numéro sera visible publiquement dans l'annuaire.</p>
+      </div>
+      <div class="field">
+        <label for="lien">Lien (Facebook, site web, facultatif)</label>
+        <input type="url" id="lien" name="lien">
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Benin Market — Bénin</span>
+    <span><a href="annuaire.html">Voir l'annuaire</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

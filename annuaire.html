@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annuaire — Benin Market</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">Benin <span>Market</span></a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="annuaire.html" aria-current="page">Annuaire</a></li>
+        <li><a href="vision.html">Notre vision</a></li>
+        <li><a href="rejoindre.html">Rejoindre</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <h1>L'annuaire</h1>
+    <p>Recherchez par nom ou type de produit, choisissez une ville, ou filtrez par catégorie.</p>
+
+    <div class="directory-toolbar">
+      <input type="text" id="search-input" placeholder="Rechercher une entreprise, un produit…" aria-label="Rechercher dans l'annuaire">
+      <select id="city-filter" aria-label="Filtrer par ville"></select>
+    </div>
+    <div class="chip-row" id="category-filters" role="group" aria-label="Filtrer par catégorie">
+      <!-- rempli par script.js -->
+    </div>
+
+    <ul class="directory-list" id="directory-list">
+      <!-- rempli par script.js -->
+    </ul>
+
+    <div class="empty-state" id="empty-state" hidden>
+      <p>Aucune entreprise ne correspond à votre recherche pour l'instant.</p>
+      <a href="rejoindre.html" class="btn btn-primary">Ajouter la vôtre</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Benin Market — Bénin</span>
+    <span>Projet pilote — <a href="vision.html">en savoir plus sur la démarche</a></span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
