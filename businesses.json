@@ -26,7 +26,9 @@
       "bouilloire",
       "électroménager",
       "accessoires"
-    ]
+    ],
+    "offre": "premium",
+    "verifiee": true
   },
   {
     "nom": "YoupiLab",
@@ -45,7 +47,9 @@
       "imprimante 3D",
       "formation",
       "IoT"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Instakoutur (KEORA SARL)",
@@ -65,7 +69,9 @@
       "robe",
       "habit",
       "sur mesure"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Les Jus Tillou",
@@ -81,7 +87,9 @@
       "ananas",
       "boisson",
       "fruit"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Appelle Dave",
@@ -97,7 +105,9 @@
       "courses",
       "coursier",
       "commission"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "ColisOk",
@@ -113,7 +123,9 @@
       "livraison",
       "achat en ligne",
       "vérification"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Meubles Gautier Bénin",
@@ -131,7 +143,9 @@
       "armoire",
       "salon",
       "décoration"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "SBEE",
@@ -148,7 +162,9 @@
       "compteur",
       "facture",
       "abonnement"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "La Poste du Bénin",
@@ -165,7 +181,9 @@
       "lettre",
       "envoi",
       "mandat"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Gozem",
@@ -184,7 +202,9 @@
       "course",
       "livraison",
       "application"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "MTN Bénin",
@@ -204,7 +224,9 @@
       "mobile money",
       "crédit",
       "réseau"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Moov Africa Bénin",
@@ -223,7 +245,9 @@
       "moov money",
       "crédit",
       "réseau"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Bank of Africa Bénin",
@@ -241,7 +265,9 @@
       "prêt",
       "épargne",
       "carte"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Novotel Cotonou Orisha",
@@ -258,7 +284,9 @@
       "restaurant",
       "séminaire",
       "hébergement"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Université d'Abomey-Calavi",
@@ -276,6 +304,8 @@
       "master",
       "formation",
       "école"
-    ]
+    ],
+    "offre": "",
+    "verifiee": false
   }
 ]

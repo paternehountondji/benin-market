@@ -639,3 +639,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 460px) {
   .site-footer .container.footer-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Badges (offre et vérification) ---------- */
+
+.badge {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-premium { background: var(--indigo); color: var(--ochre); border: 1px solid var(--ochre); }
+.badge-gold { background: var(--ochre); color: var(--indigo); }
+.badge-argent { background: #D9DEE7; color: #2B3445; }
+.badge-bronze { background: #E7CDB4; color: #5A3410; }
+.badge-verifiee { background: #DDF1E4; color: #17683C; }
+
+.spotlight .badge-premium { background: var(--ochre); color: var(--indigo); margin-left: 6px; }
+
+.verify-list { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.verify-list li { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.verify-list p { font-size: 0.92rem; margin: 0; }
+
+@media (max-width: 760px) {
+  .verify-list { grid-template-columns: 1fr; }
+}

@@ -35,6 +35,26 @@ const CATEGORIES = {
 
 const TONES = ["tone-a", "tone-b", "tone-c", "tone-d"];
 
+/* Offres payantes : libellé du badge et rang dans le classement (le plus haut en premier). */
+const OFFRES = {
+  premium: { label: "Premium", rang: 4 },
+  gold: { label: "Gold", rang: 3 },
+  argent: { label: "Argent", rang: 2 },
+  bronze: { label: "Bronze", rang: 1 }
+};
+
+function offerRank(b) {
+  return OFFRES[b.offre] ? OFFRES[b.offre].rang : 0;
+}
+
+function badgesHtml(b) {
+  const offer = OFFRES[b.offre]
+    ? `<span class="badge badge-${escapeHtml(b.offre)}">${OFFRES[b.offre].label}</span>`
+    : "";
+  const verified = b.verifiee ? '<span class="badge badge-verifiee">Entreprise vérifiée</span>' : "";
+  return offer + verified;
+}
+
 function categoryLabel(id) {
   return CATEGORIES[id] ? CATEGORIES[id].label : id;
 }
@@ -137,7 +157,10 @@ function setupSuggestions(input, box, businesses) {
     const q = normalize(query);
     const companies = businesses
       .filter((b) => matchesQuery(b, query))
-      .sort((a, b) => Number(normalize(b.nom).startsWith(q)) - Number(normalize(a.nom).startsWith(q)))
+      .sort(
+        (a, b) =>
+          Number(normalize(b.nom).startsWith(q)) - Number(normalize(a.nom).startsWith(q)) || offerRank(b) - offerRank(a)
+      )
       .slice(0, 5);
     const cats = Object.keys(CATEGORIES)
       .filter((id) => normalize(CATEGORIES[id].label).includes(q))
@@ -153,7 +176,7 @@ function setupSuggestions(input, box, businesses) {
       .map(
         (b) => `
         <a class="suggest-item" href="${buildUrl("annuaire.html", { q: b.nom })}">
-          <strong>${escapeHtml(b.nom)}</strong>
+          <strong>${escapeHtml(b.nom)} ${badgesHtml(b)}</strong>
           <span>${escapeHtml(b.ville)} · ${escapeHtml(categoryLabel(b.categorie))}</span>
         </a>`
       )
@@ -254,9 +277,9 @@ function renderDirectory(businesses) {
     const query = searchInput ? searchInput.value.trim() : "";
     const city = citySelect ? citySelect.value : "";
     const cat = catSelect ? catSelect.value : "";
-    const filtered = businesses.filter(
-      (b) => (!cat || b.categorie === cat) && (!city || b.ville === city) && (!query || matchesQuery(b, query))
-    );
+    const filtered = businesses
+      .filter((b) => (!cat || b.categorie === cat) && (!city || b.ville === city) && (!query || matchesQuery(b, query)))
+      .sort((a, b) => offerRank(b) - offerRank(a));
 
     if (countEl) {
       countEl.textContent = filtered.length === 1 ? "1 entreprise trouvée" : `${filtered.length} entreprises trouvées`;
@@ -301,7 +324,7 @@ function renderDirectory(businesses) {
         <li class="entry">
           ${thumb}
           <div>
-            <h3>${nameHtml}</h3>
+            <h3>${nameHtml} ${badgesHtml(b)}</h3>
             <p class="meta">${escapeHtml(b.ville)}${b.membreFondateur ? " · Membre fondateur" : ""}</p>
             <span class="cat-tag">${escapeHtml(categoryLabel(b.categorie))}</span>
             <p>${escapeHtml(b.description)}</p>
