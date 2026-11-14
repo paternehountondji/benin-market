@@ -163,8 +163,8 @@
       "facture",
       "abonnement"
     ],
-    "offre": "",
-    "verifiee": false
+    "offre": "Gold",
+    "verifiee": true
   },
   {
     "nom": "La Poste du Bénin",
@@ -225,8 +225,8 @@
       "crédit",
       "réseau"
     ],
-    "offre": "",
-    "verifiee": false
+    "offre": "Gold",
+    "verifiee": true
   },
   {
     "nom": "Moov Africa Bénin",

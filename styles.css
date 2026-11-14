@@ -669,3 +669,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 760px) {
   .verify-list { grid-template-columns: 1fr; }
 }
+
+/* ---------- Vidéo de présentation ---------- */
+
+.video-row { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 40px; align-items: center; }
+.presentation { display: block; width: 100%; height: auto; border-radius: 10px; background: #101B36; box-shadow: 0 16px 36px rgba(27, 42, 74, 0.22); }
+
+@media (max-width: 760px) {
+  .video-row { grid-template-columns: 1fr; gap: 20px; }
+}
