@@ -1,0 +1,427 @@
+/* ===========================================================
+   SMART HOUSE — boutique
+   Idée directrice : le panier est un ticket de caisse en papier,
+   les prix sont des étiquettes jaunes collées sur les produits.
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #EEF1F7;
+  --ink: #101828;
+  --ink-soft: #4B5568;
+  --blue: #1447E6;
+  --blue-dark: #0E32A8;
+  --tag: #FFD43B;
+  --paper: #FFFFFF;
+  --line: #D5DBE8;
+  --green: #0F7A43;
+  --font-display: 'Bricolage Grotesque', 'Arial Black', sans-serif;
+  --font-body: 'Figtree', Arial, sans-serif;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+a { color: var(--blue-dark); }
+
+button { font-family: inherit; cursor: pointer; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--tag);
+  outline-offset: 2px;
+}
+
+/* ---------- En-tête ---------- */
+
+.top { background: var(--ink); position: sticky; top: 0; z-index: 20; }
+
+.top-row { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.logo { display: inline-flex; align-items: center; }
+.logo img { border-radius: 50%; margin-right: 10px; }
+.logo span { color: var(--tag); margin-left: 4px; }
+
+.top-actions { display: flex; align-items: center; gap: 14px; }
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #D6DCEA;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 6px 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cart-btn {
+  background: var(--blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.cart-count {
+  display: inline-block;
+  min-width: 22px;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--tag);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.demo-banner {
+  background: var(--tag);
+  color: var(--ink);
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 16px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero { padding: 44px 0 28px; overflow-x: clip; }
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  max-width: 18ch;
+}
+
+.hero-row { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: center; }
+
+.hero-photo { margin: 0; position: relative; transform: rotate(2deg); }
+.hero-photo img { display: block; width: 100%; height: 230px; object-fit: cover; object-position: center 30%; border-radius: 14px; border: 6px solid var(--paper); }
+.hero-photo figcaption {
+  position: absolute; left: -10px; bottom: 14px;
+  background: var(--tag); color: var(--ink);
+  font-family: var(--font-mono); font-size: 0.82rem;
+  padding: 5px 10px; border-radius: 4px; transform: rotate(-5deg);
+}
+
+.hero p { max-width: 58ch; margin: 0; color: var(--ink-soft); font-size: 1.08rem; }
+
+/* ---------- Mise en page ---------- */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 32px;
+  align-items: start;
+  padding-bottom: 64px;
+}
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+
+.filter {
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.filter[aria-pressed="true"] { background: var(--ink); color: #FFFFFF; }
+
+/* ---------- Produits ---------- */
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--paper);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-visual {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-visual svg { width: 46%; height: auto; }
+
+.card-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+.tone-audio { background: #DCE6FF; color: var(--blue); }
+.tone-telephonie { background: #E3F4EA; color: #0F7A43; }
+.tone-maison { background: #FFE9D6; color: #B4480F; }
+
+.price-tag {
+  position: absolute;
+  right: 10px;
+  bottom: -14px;
+  background: var(--tag);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 0 rgba(16, 24, 40, 0.18);
+}
+
+.card-body { padding: 22px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+
+.card-body h3 { margin: 0; font-size: 1.02rem; font-weight: 600; }
+
+.card-body p { margin: 0; color: var(--ink-soft); font-size: 0.9rem; flex: 1; }
+
+.add-btn {
+  margin-top: 10px;
+  background: var(--ink);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.add-btn:hover { background: var(--blue); }
+
+.add-btn.added { background: var(--green); }
+
+/* ---------- Ticket de caisse (panier) ---------- */
+
+.ticket {
+  position: sticky;
+  top: 84px;
+  background: var(--paper);
+  padding: 22px 20px 26px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  /* bord inférieur dentelé, comme un ticket déchiré */
+  --tooth: 10px;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / var(--tooth) 51% repeat-x,
+        linear-gradient(#000 0 0) top / 100% calc(100% - var(--tooth) / 2) no-repeat;
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / var(--tooth) 51% repeat-x,
+        linear-gradient(#000 0 0) top / 100% calc(100% - var(--tooth) / 2) no-repeat;
+}
+
+.ticket-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 1.5px dashed var(--ink);
+}
+
+.ticket-head strong { font-family: var(--font-display); font-size: 1.15rem; letter-spacing: 0.04em; }
+
+.ticket-close { display: none; }
+
+.ticket-client { margin: 10px 0 0; color: var(--ink-soft); font-size: 0.8rem; }
+
+.ticket-lines { list-style: none; margin: 12px 0 0; padding: 0; }
+
+.ticket-line { padding: 10px 0; border-bottom: 1px dotted var(--line); }
+
+.line-top { display: flex; justify-content: space-between; gap: 10px; }
+
+.line-top span:last-child { white-space: nowrap; }
+
+.line-qty { display: flex; align-items: center; gap: 8px; margin-top: 6px; color: var(--ink-soft); }
+
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.line-remove {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+.ticket-empty { color: var(--ink-soft); text-align: center; margin: 22px 0; }
+
+.ticket-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1.5px dashed var(--ink);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.order-btn {
+  width: 100%;
+  margin-top: 16px;
+  background: var(--green);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 12px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.order-btn:disabled { background: #B9C1D1; cursor: not-allowed; }
+
+.ticket-note { margin: 12px 0 0; font-family: var(--font-body); font-size: 0.8rem; color: var(--ink-soft); }
+
+/* ---------- Compte ---------- */
+
+.account {
+  border: none;
+  border-radius: 14px;
+  padding: 26px;
+  width: min(420px, calc(100vw - 32px));
+  color: var(--ink);
+}
+
+.account::backdrop { background: rgba(16, 24, 40, 0.55); }
+
+.account h2 { font-family: var(--font-display); margin: 0 0 6px; }
+
+.account p { margin: 0 0 14px; color: var(--ink-soft); font-size: 0.9rem; }
+
+.account label { display: block; font-weight: 600; font-size: 0.9rem; margin: 12px 0 5px; }
+
+.account input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.account-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 20px; }
+
+.account-actions .link-btn { color: var(--ink-soft); }
+
+.primary-btn {
+  background: var(--blue);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ---------- Pied de page ---------- */
+
+.foot { background: var(--ink); color: #D6DCEA; padding: 26px 0; font-size: 0.88rem; }
+
+.foot a { color: #FFFFFF; }
+
+.foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+
+/* ---------- Mobile : le ticket devient un panneau ---------- */
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; }
+
+  .logo { font-size: 1.05rem; }
+  .logo img { width: 32px; height: 32px; margin-right: 7px; }
+  .top-actions { gap: 8px; }
+  .link-btn { font-size: 0.85rem; }
+  .cart-btn { padding: 8px 12px; font-size: 0.88rem; }
+
+  .hero-row { grid-template-columns: 1fr; gap: 24px; }
+  .hero-photo { max-width: 340px; transform: none; }
+  .hero-photo figcaption { left: 10px; }
+
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+  .ticket {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(360px, 100vw);
+    z-index: 30;
+    overflow-y: auto;
+    transform: translateX(105%);
+    transition: transform 0.22s ease;
+    mask: none;
+    -webkit-mask: none;
+    box-shadow: -8px 0 24px rgba(16, 24, 40, 0.25);
+  }
+
+  .ticket.open { transform: translateX(0); }
+
+  .ticket-close {
+    display: inline-block;
+    margin-top: 8px;
+    background: none;
+    border: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-decoration: underline;
+    color: var(--ink);
+  }
+
+  .price-tag { font-size: 0.85rem; }
+}
+
+@media (min-width: 861px) {
+  .cart-btn { pointer-events: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

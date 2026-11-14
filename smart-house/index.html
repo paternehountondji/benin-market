@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMART HOUSE — boutique en ligne, Lokossa</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a href="index.html" class="logo"><img src="logo.png" alt="" width="40" height="40">SMART<span>HOUSE</span></a>
+    <div class="top-actions">
+      <button type="button" class="link-btn" id="account-btn">Me connecter</button>
+      <button type="button" class="cart-btn" id="cart-open" aria-controls="ticket">
+        Panier <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="demo-banner" id="demo-banner" hidden>
+  Catalogue de démonstration : les produits et les prix sont indicatifs.
+</div>
+
+<section class="hero">
+  <div class="wrap hero-row">
+    <div>
+      <h1>Ton téléphone, ta musique, ta maison. Un seul panier.</h1>
+      <p>Choisis tes articles, le total se calcule tout seul, et ta commande part directement sur le WhatsApp de la boutique à Lokossa.</p>
+    </div>
+    <figure class="hero-photo">
+      <img src="photos/boutique.jpg" alt="Les rayons de la boutique SMART HOUSE : téléphones, casques et accessoires" width="736" height="981">
+      <figcaption>La boutique, à Lokossa</figcaption>
+    </figure>
+  </div>
+</section>
+
+<main class="wrap layout">
+  <section aria-label="Catalogue">
+    <div class="filters" id="filters" role="group" aria-label="Filtrer les produits"></div>
+    <ul class="grid" id="grid"></ul>
+  </section>
+
+  <aside class="ticket" id="ticket" aria-label="Votre panier">
+    <div class="ticket-head">
+      <strong>SMART HOUSE</strong>
+      <span>Lokossa, Bénin</span>
+      <button type="button" class="ticket-close" id="cart-close" aria-label="Fermer le panier">Fermer</button>
+    </div>
+    <p class="ticket-client" id="ticket-client"></p>
+    <ul class="ticket-lines" id="ticket-lines"></ul>
+    <p class="ticket-empty" id="ticket-empty">Ton panier est vide. Ajoute un article pour commencer.</p>
+    <div class="ticket-total">
+      <span>Total</span>
+      <span id="ticket-total">0 FCFA</span>
+    </div>
+    <button type="button" class="order-btn" id="order-btn" disabled>Commander sur WhatsApp</button>
+    <p class="ticket-note">Paiement à la livraison ou en boutique. La boutique confirme ta commande par WhatsApp.</p>
+  </aside>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <span>SMART HOUSE, Lokossa. WhatsApp : <a href="https://wa.me/2290159000398" target="_blank" rel="noopener">+229 01 59 00 03 98</a></span>
+    <span>Boutique créée avec <a href="../index.html">Benin Market</a></span>
+  </div>
+</footer>
+
+<dialog class="account" id="account-dialog">
+  <form method="dialog" id="account-form">
+    <h2>Mon compte</h2>
+    <p>Ces informations servent à préparer ta commande. Elles restent enregistrées sur cet appareil.</p>
+    <label for="acc-nom">Nom et prénom</label>
+    <input type="text" id="acc-nom" required>
+    <label for="acc-tel">Numéro WhatsApp</label>
+    <input type="tel" id="acc-tel" placeholder="+229 01 …" required>
+    <label for="acc-ville">Ville ou quartier de livraison</label>
+    <input type="text" id="acc-ville" required>
+    <div class="account-actions">
+      <button type="button" class="link-btn" id="account-logout" hidden>Me déconnecter</button>
+      <button type="button" class="link-btn" id="account-cancel">Annuler</button>
+      <button type="submit" class="primary-btn">Enregistrer</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="shop.js"></script>
+</body>
+</html>

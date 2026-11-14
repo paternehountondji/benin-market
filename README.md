@@ -80,3 +80,14 @@ Sans cette étape, le formulaire reste visible mais n'envoie rien.
 - Ajouter de vraies entreprises (viser au moins 10 à 15, dans plusieurs villes)
 - Activer Formspree
 - Déployer et tester le lien final avant de le mettre dans la candidature
+
+## La boutique SMART HOUSE (dossier `smart-house/`)
+
+Première boutique en ligne créée avec Benin Market. Adresse : `https://<ton-identifiant>.github.io/benin-market/smart-house/`
+
+- `products.json` : la liste des produits. Pour chaque produit : `nom`, `categorie` (`telephonie`, `audio` ou `maison`), `prix` en FCFA (un nombre sans espace), `description`.
+- **Photos** : mets l'image dans `smart-house/photos/`, puis écris son chemin dans le champ `photo`, par exemple `"photo": "photos/ecouteurs.jpg"`. Sans photo, un pictogramme s'affiche.
+- `"demo": true` affiche le bandeau jaune « Catalogue de démonstration ». Passe-le à `false` quand les vrais produits et les vrais prix sont en place.
+- `whatsapp` : le numéro qui reçoit les commandes, sans `+` ni espaces.
+
+Le panier et le compte client sont enregistrés dans le navigateur du client. Il n'y a pas de paiement en ligne : la commande part sur WhatsApp.

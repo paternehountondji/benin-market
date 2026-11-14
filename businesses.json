@@ -7,7 +7,9 @@
     "contact": "+229 01 59 00 03 98",
     "lien": "https://www.facebook.com/share/18rXJciYxU/?mibextid=wwXIfr",
     "membreFondateur": true,
-    "avis": []
+    "avis": [],
+    "boutique": "smart-house/index.html",
+    "photo": "smart-house/photos/boutique.jpg"
   },
   {
     "nom": "YoupiLab",

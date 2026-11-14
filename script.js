@@ -167,6 +167,12 @@ function renderDirectory(businesses) {
           ? `<a href="https://wa.me/${digits}" target="_blank" rel="noopener">WhatsApp</a>`
           : "";
         const linkLine = b.lien ? `<a href="${escapeHtml(b.lien)}" target="_blank" rel="noopener">Voir la page</a>` : "";
+        const thumb = b.photo
+          ? `<img class="entry-photo" src="${escapeHtml(b.photo)}" alt="" loading="lazy" width="56" height="56">`
+          : `<span class="entry-initial" aria-hidden="true">${initial}</span>`;
+        const shopLine = b.boutique
+          ? `<a class="shop-link" href="${escapeHtml(b.boutique)}">Visiter la boutique</a>`
+          : "";
         const nameHtml = b.lien
           ? `<a href="${escapeHtml(b.lien)}" target="_blank" rel="noopener">${escapeHtml(b.nom)}</a>`
           : escapeHtml(b.nom);
@@ -182,7 +188,7 @@ function renderDirectory(businesses) {
           : `<p class="review-empty">Pas encore d'avis. <a href="${reviewUrl}">Donner le premier avis</a></p>`;
         return `
         <li class="entry">
-          <span class="entry-initial" aria-hidden="true">${initial}</span>
+          ${thumb}
           <div>
             <h3>${nameHtml}</h3>
             <p class="meta">${escapeHtml(b.ville)}${b.membreFondateur ? " · Membre fondateur" : ""}</p>
@@ -190,7 +196,7 @@ function renderDirectory(businesses) {
             <p>${escapeHtml(b.description)}</p>
             ${reviewsHtml}
           </div>
-          <div class="entry-contact">${callLine}${whatsappLine}${linkLine}</div>
+          <div class="entry-contact">${shopLine}${callLine}${whatsappLine}${linkLine}</div>
         </li>`;
       })
       .join("");

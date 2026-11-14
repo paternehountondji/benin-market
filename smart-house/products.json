@@ -1,0 +1,16 @@
+{
+  "demo": true,
+  "whatsapp": "2290159000398",
+  "produits": [
+    { "id": "ecouteurs-bt", "nom": "Écouteurs Bluetooth", "categorie": "audio", "prix": 6500, "description": "Sans fil, avec boîtier de charge.", "icone": "audio", "photo": "" },
+    { "id": "enceinte-bt", "nom": "Enceinte Bluetooth", "categorie": "audio", "prix": 12000, "description": "Portable, autonomie d'une journée.", "icone": "enceinte", "photo": "" },
+    { "id": "chargeur-20w", "nom": "Chargeur rapide 20 W", "categorie": "telephonie", "prix": 3500, "description": "Charge rapide pour Android et iPhone.", "icone": "chargeur", "photo": "" },
+    { "id": "cable-usbc", "nom": "Câble USB-C 1 m", "categorie": "telephonie", "prix": 1500, "description": "Câble renforcé, charge et données.", "icone": "cable", "photo": "" },
+    { "id": "batterie-10000", "nom": "Batterie externe 10 000 mAh", "categorie": "telephonie", "prix": 9000, "description": "Deux à trois recharges complètes.", "icone": "batterie", "photo": "" },
+    { "id": "coque", "nom": "Coque de protection", "categorie": "telephonie", "prix": 2000, "description": "Plusieurs modèles de téléphones disponibles.", "icone": "coque", "photo": "" },
+    { "id": "mixeur", "nom": "Mixeur blender", "categorie": "maison", "prix": 15000, "description": "Pour jus, sauces et purées.", "icone": "mixeur", "photo": "" },
+    { "id": "fer", "nom": "Fer à repasser", "categorie": "maison", "prix": 9500, "description": "Semelle antiadhésive, thermostat réglable.", "icone": "fer", "photo": "" },
+    { "id": "ventilateur", "nom": "Ventilateur rechargeable", "categorie": "maison", "prix": 18000, "description": "Fonctionne sur batterie pendant les coupures.", "icone": "ventilateur", "photo": "" },
+    { "id": "lampe", "nom": "Lampe rechargeable", "categorie": "maison", "prix": 5000, "description": "Éclairage LED, recharge par USB.", "icone": "lampe", "photo": "" }
+  ]
+}
