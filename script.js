@@ -84,6 +84,15 @@ function normalize(str) {
     .replace(/[̀-ͯ]/g, "");
 }
 
+/* Transforme un nom en identifiant d'adresse : « Les Jus Tillou » devient « les-jus-tillou ». */
+function slugify(str) {
+  return normalize(str).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+function ficheUrl(b) {
+  return buildUrl("fiche.html", { id: slugify(b.nom) });
+}
+
 function getQueryParams() {
   const params = new URLSearchParams(window.location.search);
   return {
@@ -175,7 +184,7 @@ function setupSuggestions(input, box, businesses) {
     const companyHtml = companies
       .map(
         (b) => `
-        <a class="suggest-item" href="${buildUrl("annuaire.html", { q: b.nom })}">
+        <a class="suggest-item" href="${ficheUrl(b)}">
           <strong>${escapeHtml(b.nom)} ${badgesHtml(b)}</strong>
           <span>${escapeHtml(b.ville)} · ${escapeHtml(categoryLabel(b.categorie))}</span>
         </a>`
@@ -300,16 +309,15 @@ function renderDirectory(businesses) {
         const whatsappLine = digits
           ? `<a href="https://wa.me/${digits}" target="_blank" rel="noopener">WhatsApp</a>`
           : "";
-        const linkLine = b.lien ? `<a href="${escapeHtml(b.lien)}" target="_blank" rel="noopener">Voir le site</a>` : "";
+        const linkLine = b.lien ? `<a href="${escapeHtml(b.lien)}" target="_blank" rel="noopener">${b.lien.includes("facebook.com") ? "Page Facebook" : "Voir le site"}</a>` : "";
         const thumb = b.photo
           ? `<img class="entry-photo" src="${escapeHtml(b.photo)}" alt="" loading="lazy" width="56" height="56">`
           : `<span class="entry-initial" aria-hidden="true">${initial}</span>`;
         const shopLine = b.boutique
           ? `<a class="shop-link" href="${escapeHtml(b.boutique)}">Visiter la boutique</a>`
           : "";
-        const nameHtml = b.lien
-          ? `<a href="${escapeHtml(b.lien)}" target="_blank" rel="noopener">${escapeHtml(b.nom)}</a>`
-          : escapeHtml(b.nom);
+        const nameHtml = `<a href="${ficheUrl(b)}">${escapeHtml(b.nom)}</a>`;
+        const ficheLine = `<a class="shop-link" href="${ficheUrl(b)}">Voir la fiche</a>`;
         const reviews = Array.isArray(b.avis) ? b.avis : [];
         const reviewUrl = buildUrl("avis.html", { entreprise: b.nom });
         const reviewsHtml = reviews.length
@@ -330,7 +338,7 @@ function renderDirectory(businesses) {
             <p>${escapeHtml(b.description)}</p>
             ${reviewsHtml}
           </div>
-          <div class="entry-contact">${shopLine}${callLine}${whatsappLine}${linkLine}</div>
+          <div class="entry-contact">${ficheLine}${shopLine}${callLine}${whatsappLine}${linkLine}</div>
         </li>`;
       })
       .join("");

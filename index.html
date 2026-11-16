@@ -6,13 +6,17 @@
 <meta name="description" content="Benin Market : l'annuaire des entreprises du Bénin. Cherchez un produit ou un service et trouvez qui le propose près de chez vous.">
 <title>Benin Market — l'annuaire des entreprises du Bénin</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B2A4A">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="brand">Benin <span>Market</span></a>
+    <a href="index.html" class="brand"><img src="logo.svg" alt="" width="34" height="34">Benin <span>Market</span></a>
+    <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Changer de langue / Switch language">EN</button>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="nav-menu" aria-expanded="false">Menu</button>
     <nav id="nav-menu">
       <ul class="site-nav">
@@ -107,7 +111,7 @@
       <div class="spotlight-actions">
         <a href="smart-house/index.html" class="btn btn-primary">Visiter la boutique en ligne</a>
         <a href="https://wa.me/2290159000398" target="_blank" rel="noopener" class="btn btn-outline">Écrire sur WhatsApp</a>
-        <a href="https://www.facebook.com/share/18rXJciYxU/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-outline">Page Facebook</a>
+        <a href="fiche.html?id=smart-house" class="btn btn-outline">Voir la fiche</a>
       </div>
     </div>
     <img class="spotlight-photo" src="smart-house/photos/boutique.jpg" alt="Les rayons de la boutique SMART HOUSE à Lokossa" loading="lazy" width="736" height="981">
@@ -140,7 +144,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <a href="index.html" class="brand">Benin <span>Market</span></a>
+      <a href="index.html" class="brand"><img src="logo.svg" alt="" width="34" height="34">Benin <span>Market</span></a>
       <p>L'annuaire des entreprises du Bénin. Trouvez un produit, un service ou un commerce près de chez vous.</p>
     </div>
     <div>
@@ -178,5 +182,7 @@
 
 <script src="script.js"></script>
 <script src="site.js"></script>
+<script src="assistant.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>

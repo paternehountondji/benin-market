@@ -25,10 +25,21 @@
       "ventilateur",
       "bouilloire",
       "électroménager",
-      "accessoires"
+      "accessoires",
+      "phone",
+      "earbuds",
+      "headphones",
+      "charger",
+      "phone case",
+      "screen protector",
+      "smartwatch",
+      "speaker",
+      "fan",
+      "kettle",
+      "accessories"
     ],
     "offre": "premium",
-    "verifiee": true
+    "verifiee": false
   },
   {
     "nom": "YoupiLab",
@@ -46,7 +57,12 @@
       "électronique",
       "imprimante 3D",
       "formation",
-      "IoT"
+      "IoT",
+      "electronics",
+      "sensor",
+      "robotics",
+      "3D printing",
+      "training"
     ],
     "offre": "",
     "verifiee": false
@@ -68,7 +84,12 @@
       "tenue",
       "robe",
       "habit",
-      "sur mesure"
+      "sur mesure",
+      "tailor",
+      "sewing",
+      "dress",
+      "clothes",
+      "custom"
     ],
     "offre": "",
     "verifiee": false
@@ -86,7 +107,10 @@
       "jus",
       "ananas",
       "boisson",
-      "fruit"
+      "fruit",
+      "juice",
+      "pineapple",
+      "drink"
     ],
     "offre": "",
     "verifiee": false
@@ -104,7 +128,10 @@
       "livraison",
       "courses",
       "coursier",
-      "commission"
+      "commission",
+      "delivery",
+      "errands",
+      "courier"
     ],
     "offre": "",
     "verifiee": false
@@ -122,7 +149,11 @@
       "colis",
       "livraison",
       "achat en ligne",
-      "vérification"
+      "vérification",
+      "parcel",
+      "package",
+      "delivery",
+      "online shopping"
     ],
     "offre": "",
     "verifiee": false
@@ -142,7 +173,11 @@
       "canapé",
       "armoire",
       "salon",
-      "décoration"
+      "décoration",
+      "furniture",
+      "bed",
+      "sofa",
+      "wardrobe"
     ],
     "offre": "",
     "verifiee": false
@@ -161,10 +196,14 @@
       "courant",
       "compteur",
       "facture",
-      "abonnement"
+      "abonnement",
+      "electricity",
+      "power",
+      "meter",
+      "bill"
     ],
-    "offre": "Gold",
-    "verifiee": true
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "La Poste du Bénin",
@@ -180,7 +219,11 @@
       "colis",
       "lettre",
       "envoi",
-      "mandat"
+      "mandat",
+      "mail",
+      "post office",
+      "parcel",
+      "letter"
     ],
     "offre": "",
     "verifiee": false
@@ -201,7 +244,11 @@
       "moto",
       "course",
       "livraison",
-      "application"
+      "application",
+      "ride",
+      "motorbike",
+      "delivery",
+      "app"
     ],
     "offre": "",
     "verifiee": false
@@ -223,10 +270,13 @@
       "momo",
       "mobile money",
       "crédit",
-      "réseau"
+      "réseau",
+      "phone",
+      "data",
+      "network"
     ],
-    "offre": "Gold",
-    "verifiee": true
+    "offre": "",
+    "verifiee": false
   },
   {
     "nom": "Moov Africa Bénin",
@@ -244,7 +294,11 @@
       "internet",
       "moov money",
       "crédit",
-      "réseau"
+      "réseau",
+      "phone",
+      "data",
+      "mobile money",
+      "network"
     ],
     "offre": "",
     "verifiee": false
@@ -264,7 +318,12 @@
       "crédit",
       "prêt",
       "épargne",
-      "carte"
+      "carte",
+      "bank",
+      "account",
+      "loan",
+      "savings",
+      "card"
     ],
     "offre": "",
     "verifiee": false
@@ -283,7 +342,10 @@
       "chambre",
       "restaurant",
       "séminaire",
-      "hébergement"
+      "hébergement",
+      "hotel",
+      "room",
+      "conference"
     ],
     "offre": "",
     "verifiee": false
@@ -303,7 +365,11 @@
       "licence",
       "master",
       "formation",
-      "école"
+      "école",
+      "university",
+      "degree",
+      "school",
+      "studies"
     ],
     "offre": "",
     "verifiee": false
