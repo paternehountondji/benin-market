@@ -21,7 +21,10 @@
   }
 
   document.title = `${b.nom} — Benin Market`;
-  const pageUrl = window.location.href.split("#")[0];
+  /* Le QR code et les liens de partage utilisent toujours l'adresse publique du site,
+     même quand la page est ouverte depuis l'ordinateur (VS Code, Live Server). */
+  const siteUrl = (window.BM_CONFIG && window.BM_CONFIG.adresseSite) || "";
+  const pageUrl = siteUrl ? `${siteUrl}fiche.html?id=${encodeURIComponent(id)}` : window.location.href.split("#")[0];
   const digits = (b.contact || "").replace(/\D/g, "");
   const initial = escapeHtml((b.nom || "?").trim().charAt(0).toUpperCase());
   const visual = b.photo
@@ -46,7 +49,7 @@
   const reviewUrl = buildUrl("avis.html", { entreprise: b.nom });
   const reviewsHtml = reviews.length
     ? `<ul class="review-list">${reviews
-        .map((r) => `<li><strong>${escapeHtml(r.auteur)}</strong> · ${escapeHtml(r.note)}/5<br>${escapeHtml(r.texte)}</li>`)
+        .map((r) => `<li><strong>${escapeHtml(r.auteur)}</strong> <span class="stars">${starsText(r.note)}</span><br>${escapeHtml(r.texte)}</li>`)
         .join("")}</ul>`
     : '<p>Pas encore d\'avis pour cette entreprise.</p>';
 

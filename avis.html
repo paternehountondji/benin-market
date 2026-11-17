@@ -34,7 +34,11 @@
     <h1>Donner un avis</h1>
     <p>Vous avez acheté chez une entreprise de l'annuaire ? Racontez votre expérience. Chaque avis est vérifié avant d'être publié.</p>
 
-    <form class="form-card" data-whatsapp="avis" data-titre="Nouvel avis pour Benin Market">
+    <div class="avis-google" id="avis-google" hidden>
+      <iframe id="avis-frame" title="Formulaire d'avis" loading="lazy"></iframe>
+    </div>
+
+    <form class="form-card" id="avis-whatsapp" data-whatsapp="avis" data-titre="Nouvel avis pour Benin Market">
       <div class="field">
         <label for="entreprise">Entreprise concernée</label>
         <input type="text" id="entreprise" data-label="Entreprise" name="entreprise" required>
@@ -102,6 +106,7 @@
   </div>
 </footer>
 
+<script src="config.js"></script>
 <script src="site.js"></script>
 <script src="assistant.js"></script>
 <script src="i18n.js"></script>

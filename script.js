@@ -111,7 +111,108 @@ function buildUrl(base, params) {
   return str ? `${base}?${str}` : base;
 }
 
-async function loadBusinesses() {
+/* Les liens des tableaux Google sont dans config.js. Sans lien, le site lit businesses.json. */
+const BM = window.BM_CONFIG || {};
+const SHEET_CSV_URL = BM.tableauEntreprises || "";
+const REVIEWS_CSV_URL = BM.tableauAvis || "";
+
+/* Avis sur Benin Market lui-même (affichés en bas de l'accueil). */
+let SITE_REVIEWS = [];
+
+/* Découpe un texte CSV en lignes et en cellules (gère les guillemets et les virgules dans une cellule). */
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let cell = "";
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (inQuotes) {
+      if (ch === '"' && text[i + 1] === '"') {
+        cell += '"';
+        i++;
+      } else if (ch === '"') {
+        inQuotes = false;
+      } else {
+        cell += ch;
+      }
+    } else if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === ",") {
+      row.push(cell);
+      cell = "";
+    } else if (ch === "\n" || ch === "\r") {
+      if (ch === "\r" && text[i + 1] === "\n") i++;
+      row.push(cell);
+      rows.push(row);
+      row = [];
+      cell = "";
+    } else {
+      cell += ch;
+    }
+  }
+  if (cell !== "" || row.length) {
+    row.push(cell);
+    rows.push(row);
+  }
+  return rows;
+}
+
+function isYes(value) {
+  return ["oui", "yes", "true", "vrai", "x", "1"].includes(normalize(value).trim());
+}
+
+/* Accepte l'identifiant (« electronique ») ou le libellé (« Électronique & Téléphonie »). */
+function categoryId(value) {
+  const wanted = normalize(value).trim();
+  if (CATEGORIES[wanted]) return wanted;
+  const found = Object.keys(CATEGORIES).find((id) => normalize(CATEGORIES[id].label) === wanted);
+  return found || "commerce";
+}
+
+/* Transforme les lignes du tableau en fiches d'entreprises. La première ligne contient les noms de colonnes. */
+function rowsToBusinesses(rows) {
+  if (rows.length < 2) return [];
+  const headers = rows[0].map((h) => normalize(h).replace(/[^a-z]/g, ""));
+  const col = (row, name) => {
+    const index = headers.indexOf(name);
+    return index === -1 ? "" : (row[index] || "").trim();
+  };
+  return rows
+    .slice(1)
+    .filter((row) => col(row, "nom"))
+    .map((row) => ({
+      nom: col(row, "nom"),
+      categorie: categoryId(col(row, "categorie")),
+      ville: col(row, "ville"),
+      description: col(row, "description"),
+      contact: col(row, "contact"),
+      lien: col(row, "lien"),
+      photo: col(row, "photo"),
+      boutique: col(row, "boutique"),
+      offre: normalize(col(row, "offre")).trim().replace("gratuit", ""),
+      verifiee: isYes(col(row, "verifiee")),
+      membreFondateur: isYes(col(row, "membrefondateur")),
+      motsCles: col(row, "motscles")
+        .split(",")
+        .map((word) => word.trim())
+        .filter(Boolean),
+      avis: []
+    }));
+}
+
+async function loadBusinessList() {
+  if (SHEET_CSV_URL) {
+    try {
+      const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
+      if (!res.ok) throw new Error("Tableau inaccessible");
+      const list = rowsToBusinesses(parseCsv(await res.text()));
+      if (list.length) return list;
+      throw new Error("Tableau vide");
+    } catch (err) {
+      console.warn("Tableau Google Sheets indisponible, lecture de businesses.json :", err);
+    }
+  }
   try {
     const res = await fetch("businesses.json");
     if (!res.ok) throw new Error("Réponse réseau non valide");
@@ -120,6 +221,74 @@ async function loadBusinesses() {
     console.error("Impossible de charger businesses.json :", err);
     return [];
   }
+}
+
+/* Lit le tableau des réponses au formulaire d'avis. Seules les lignes où la colonne
+   « publier » contient « oui » sont affichées : c'est toi qui valides chaque avis. */
+async function loadReviews() {
+  if (!REVIEWS_CSV_URL) return [];
+  try {
+    const res = await fetch(REVIEWS_CSV_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("Tableau des avis inaccessible");
+    const rows = parseCsv(await res.text());
+    if (rows.length < 2) return [];
+    const headers = rows[0].map((h) => normalize(h));
+    const find = (...words) => headers.findIndex((h) => words.some((word) => h.includes(word)));
+    const iBusiness = find("entreprise");
+    const iText = find("votre avis", "commentaire", "avis");
+    const iAuthor = headers.findIndex((h, i) => i !== iBusiness && h.includes("nom"));
+    const iNote = find("note");
+    const iPublish = find("publier");
+    return rows
+      .slice(1)
+      .filter((row) => iPublish !== -1 && isYes(row[iPublish] || ""))
+      .map((row) => ({
+        entreprise: (row[iBusiness] || "").trim(),
+        auteur: (row[iAuthor] || "").trim() || "Anonyme",
+        note: parseInt(row[iNote], 10) || 0,
+        texte: (row[iText] || "").trim()
+      }))
+      .filter((review) => review.texte);
+  } catch (err) {
+    console.warn("Avis indisponibles :", err);
+    return [];
+  }
+}
+
+/* Charge les entreprises, puis range chaque avis publié sous la bonne entreprise. */
+async function loadBusinesses() {
+  const [businesses, reviews] = await Promise.all([loadBusinessList(), loadReviews()]);
+  SITE_REVIEWS = reviews.filter((review) => normalize(review.entreprise).includes("benin market"));
+  businesses.forEach((b) => {
+    const own = reviews.filter((review) => normalize(review.entreprise).trim() === normalize(b.nom).trim());
+    b.avis = (Array.isArray(b.avis) ? b.avis : []).concat(own);
+  });
+  return businesses;
+}
+
+function starsText(note) {
+  const n = Math.max(0, Math.min(5, Number(note) || 0));
+  return "★".repeat(n) + "☆".repeat(5 - n);
+}
+
+function renderSiteReviews() {
+  const box = document.getElementById("site-reviews");
+  if (!box) return;
+  if (SITE_REVIEWS.length === 0) {
+    box.innerHTML = '<p class="site-reviews-empty">Aucun avis publié pour l\'instant. Soyez le premier à donner le vôtre.</p>';
+    return;
+  }
+  box.innerHTML = `<ul class="site-review-list">${SITE_REVIEWS.slice(-6)
+    .reverse()
+    .map(
+      (r) => `
+      <li>
+        <span class="stars" aria-label="${escapeHtml(r.note)} sur 5">${starsText(r.note)}</span>
+        <p>${escapeHtml(r.texte)}</p>
+        <strong>${escapeHtml(r.auteur)}</strong>
+      </li>`
+    )
+    .join("")}</ul>`;
 }
 
 function getCities(businesses) {
@@ -137,14 +306,35 @@ function matchesQuery(b, query) {
   return words.every((word) => text.includes(word));
 }
 
+/* Les 77 communes du Bénin, classées par département. */
+const COMMUNES = {
+  "Alibori": ["Banikoara", "Gogounou", "Kandi", "Karimama", "Malanville", "Ségbana"],
+  "Atacora": ["Boukoumbé", "Cobly", "Kérou", "Kouandé", "Matéri", "Natitingou", "Péhunco", "Tanguiéta", "Toucountouna"],
+  "Atlantique": ["Abomey-Calavi", "Allada", "Kpomassè", "Ouidah", "Sô-Ava", "Toffo", "Tori-Bossito", "Zè"],
+  "Borgou": ["Bembèrèkè", "Kalalé", "N'Dali", "Nikki", "Parakou", "Pèrèrè", "Sinendé", "Tchaourou"],
+  "Collines": ["Bantè", "Dassa-Zoumè", "Glazoué", "Ouèssè", "Savalou", "Savè"],
+  "Couffo": ["Aplahoué", "Djakotomey", "Dogbo", "Klouékanmè", "Lalo", "Toviklin"],
+  "Donga": ["Bassila", "Copargo", "Djougou", "Ouaké"],
+  "Littoral": ["Cotonou"],
+  "Mono": ["Athiémé", "Bopa", "Comè", "Grand-Popo", "Houéyogbé", "Lokossa"],
+  "Ouémé": ["Adjarra", "Adjohoun", "Aguégués", "Akpro-Missérété", "Avrankou", "Bonou", "Dangbo", "Porto-Novo", "Sèmè-Kpodji"],
+  "Plateau": ["Adja-Ouèrè", "Ifangni", "Kétou", "Pobè", "Sakété"],
+  "Zou": ["Abomey", "Agbangnizoun", "Bohicon", "Covè", "Djidja", "Ouinhi", "Za-Kpota", "Zagnanado", "Zogbodomey"]
+};
+
+/* Remplit une liste de villes avec les 77 communes, regroupées par département. */
 function fillCitySelect(select, businesses, selected) {
   if (!select) return;
-  const options = ['<option value="">Tout le Bénin</option>'].concat(
-    getCities(businesses).map(
-      (city) => `<option value="${escapeHtml(city)}"${city === selected ? " selected" : ""}>${escapeHtml(city)}</option>`
-    )
+  const known = Object.values(COMMUNES).flat();
+  const option = (city) =>
+    `<option value="${escapeHtml(city)}"${city === selected ? " selected" : ""}>${escapeHtml(city)}</option>`;
+  const groups = Object.keys(COMMUNES).map(
+    (dept) => `<optgroup label="${escapeHtml(dept)}">${COMMUNES[dept].map(option).join("")}</optgroup>`
   );
-  select.innerHTML = options.join("");
+  /* Une ville écrite autrement dans une fiche reste proposée, pour ne cacher aucune entreprise. */
+  const others = getCities(businesses).filter((city) => !known.includes(city));
+  if (others.length) groups.push(`<optgroup label="Autres">${others.map(option).join("")}</optgroup>`);
+  select.innerHTML = '<option value="">Tout le Bénin</option>' + groups.join("");
 }
 
 /* ---------- Suggestions pendant la saisie ---------- */
@@ -324,7 +514,7 @@ function renderDirectory(businesses) {
           ? `<ul class="review-list">${reviews
               .map(
                 (r) =>
-                  `<li><strong>${escapeHtml(r.auteur)}</strong> · ${escapeHtml(r.note)}/5<br>${escapeHtml(r.texte)}</li>`
+                  `<li><strong>${escapeHtml(r.auteur)}</strong> <span class="stars">${starsText(r.note)}</span><br>${escapeHtml(r.texte)}</li>`
               )
               .join("")}</ul><a class="review-link" href="${reviewUrl}">Donner un avis</a>`
           : `<p class="review-empty">Pas encore d'avis. <a href="${reviewUrl}">Donner le premier avis</a></p>`;
@@ -359,4 +549,5 @@ function renderDirectory(businesses) {
   renderHomeCategories(businesses);
   setupHeroSearch(businesses);
   renderDirectory(businesses);
+  renderSiteReviews();
 })();

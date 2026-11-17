@@ -71,3 +71,14 @@ if ("serviceWorker" in navigator) {
     });
   });
 }
+
+/* ---------- Formulaire d'avis Google (si son lien est dans config.js) ---------- */
+
+const avisFormUrl = (window.BM_CONFIG && window.BM_CONFIG.formulaireAvis) || "";
+const avisGoogle = document.getElementById("avis-google");
+if (avisGoogle && avisFormUrl) {
+  const joiner = avisFormUrl.includes("?") ? "&" : "?";
+  document.getElementById("avis-frame").src = `${avisFormUrl}${joiner}embedded=true`;
+  avisGoogle.hidden = false;
+  document.getElementById("avis-whatsapp").hidden = true;
+}

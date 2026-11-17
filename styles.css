@@ -810,3 +810,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 .fiche .cat-tag { display: inline-block; font-size: 0.82rem; font-weight: 600; color: var(--clay-dark); background: #F6E3D9; padding: 3px 10px; border-radius: 4px; }
+
+/* Les suggestions s'affichent dans le panneau, sans recouvrir la liste des villes ni le bouton Chercher. */
+.suggest-box { position: static; margin-top: 8px; box-shadow: none; }
+
+/* Couleur des badges dans les suggestions */
+.suggest-item .badge { font-size: 0.72rem; }
+.suggest-item .badge-premium { color: var(--ochre); }
+.suggest-item .badge-gold { color: var(--indigo); }
+.suggest-item .badge-argent { color: #2B3445; }
+.suggest-item .badge-bronze { color: #5A3410; }
+.suggest-item .badge-verifiee { color: #17683C; }
+
+/* ---------- Avis ---------- */
+
+.stars { color: #C98A12; letter-spacing: 1px; white-space: nowrap; }
+
+.site-reviews-empty { margin: 14px 0 20px; }
+.site-review-list { list-style: none; margin: 22px 0 26px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.site-review-list li { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--ochre); border-radius: var(--radius); padding: 18px; }
+.site-review-list p { margin: 8px 0 10px; color: var(--ink); font-size: 0.95rem; }
+.site-review-list strong { font-size: 0.88rem; color: var(--indigo); }
+
+.avis-google iframe { display: block; width: 100%; max-width: 680px; height: 900px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.avis-google[hidden], .form-card[hidden] { display: none; }

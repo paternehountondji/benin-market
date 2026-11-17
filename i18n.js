@@ -53,6 +53,7 @@
     "Rechercher une entreprise ou un produit": "Search for a business or a product",
     "Choisir une ville": "Choose a city",
     "Tout le Bénin": "All of Benin",
+    "Autres": "Others",
     "Les entreprises s'affichent pendant que vous écrivez.": "Businesses appear as you type.",
     "Voir toute la catégorie": "See the whole category",
     "Ajouter une entreprise": "Add a business",
@@ -281,6 +282,12 @@
     "Une information est fausse, que faire ?": "Some information is wrong. What should I do?",
     "Écrivez-nous sur WhatsApp. Nous corrigeons ou nous retirons la fiche.": "Write to us on WhatsApp. We correct or remove the listing.",
 
+    "Ce que disent les utilisateurs": "What users say",
+    "Aucun avis publié pour l'instant. Soyez le premier à donner le vôtre.": "No reviews published yet. Be the first to write one.",
+    "Donner mon avis sur Benin Market": "Review Benin Market",
+    "Formulaire d'avis": "Review form",
+    "Anonyme": "Anonymous",
+
     /* --- Page d'une entreprise --- */
     "Fiche entreprise — Benin Market": "Business page — Benin Market",
     "Chargement de la fiche…": "Loading the page…",
@@ -359,6 +366,7 @@
     [/^1 entreprise$/, () => "1 business"],
     [/^Aucun résultat pour « (.*) »\.$/, (m) => `No results for “${m[1]}”.`],
     [/^Bonjour, (.*)$/, (m) => `Hello, ${m[1]}`],
+    [/^(\d) sur 5$/, (m) => `${m[1]} out of 5`],
     [/^QR code de (.*)$/, (m) => `QR code for ${m[1]}`],
     [/^Client : (.*)$/, (m) => `Customer: ${m[1]}`],
     [/^Ajouter un (.*)$/, (m) => `Add one ${translate(m[1]) || m[1]}`],
